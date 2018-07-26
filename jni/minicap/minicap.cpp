@@ -215,6 +215,9 @@ main(int argc, char* argv[]) {
   bool testOnly = false;
   Projection proj;
 
+  /* [DEBUG] @HY 2018-07-22 */
+  fprintf(stderr, "++++ [DEBUG] init \n");
+
   int opt;
   while ((opt = getopt(argc, argv, "d:n:P:Q:siSth")) != -1) {
     switch (opt) {
@@ -347,11 +350,15 @@ main(int argc, char* argv[]) {
   // Server config.
   SimpleServer server;
 
+  std::cout << "[DEBUG] Before setup minicap ... " << std::endl;
+
   // Set up minicap.
   Minicap* minicap = minicap_create(displayId);
   if (minicap == NULL) {
     return EXIT_FAILURE;
   }
+
+  std::cout << "[DEBUG] After setup minicap ... " << std::endl;
 
   // Figure out the quirks the current capture method has.
   unsigned char quirks = 0;

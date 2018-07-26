@@ -7,6 +7,7 @@ LOCAL_SRC_FILES := \
 	JpgEncoder.cpp \
 	SimpleServer.cpp \
 	minicap.cpp \
+	minicap_28.cpp \
 
 LOCAL_STATIC_LIBRARIES := \
 	libjpeg-turbo \
