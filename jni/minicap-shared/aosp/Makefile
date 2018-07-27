@@ -540,6 +540,15 @@ libs/android-27/mips/minicap.so: $(SOURCES) src/minicap_27.cpp
 		-v $(this_dir)$(@D):/artifacts \
 		openstf/aosp:jdk8 /aosp.sh build aosp_mips-eng minicap
 
+libs/android-27/armeabi-v7a/minicap.so: $(SOURCES) src/minicap_28.cpp
+	mkdir -p $(@D)
+	docker run --rm \
+		-a stdout -a stderr \
+		-v /media/aosp/android-8.1.0_r1:/aosp \
+		-v $(this_dir):/app \
+		-v $(this_dir)$(@D):/artifacts \
+		openstf/aosp:jdk8 /aosp.sh build aosp_arm-eng minicap
+
 libs/android-28/mips64/minicap.so: $(SOURCES) src/minicap_28.cpp
 	mkdir -p $(@D)
 	docker run --rm \
